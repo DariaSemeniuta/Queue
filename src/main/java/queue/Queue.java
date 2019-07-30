@@ -12,12 +12,12 @@ public class Queue {
     }
 
     public synchronized Object getObject() throws InterruptedException {
-        queueList.wait();
+        //wait();
         int lastIndex = queueList.size()-1;
         Object last = queueList.get(lastIndex);
 
         queueList.remove(lastIndex);
-        queueList.notify();
+        //notify();
         return last;
     }
 
@@ -25,8 +25,10 @@ public class Queue {
         queueList.add(object);
     }
 
-    public void printQueue(){
+    public synchronized void printQueue() throws InterruptedException{
+        //wait();
         System.out.println(this.toString());
+        //notify();
     }
 
     @Override

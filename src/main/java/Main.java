@@ -11,10 +11,11 @@ public class Main {
         Thread secondThread = new Thread(new Runnable() {
             @Override
             public void run() {
+                System.out.println("sec thread!!!");
                 for(int i=0; i<1000; ++i){
                 firstQueue.putObject("secondThread"+i);
                 }
-                //System.out.println("sec thread!!!");
+
             }
         });
         secondThread.start();
